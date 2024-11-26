@@ -33,10 +33,10 @@ const Dashboard = ({ navigation }) => {
 
   const renderDiscoverImages = () => {
     const images = [
-      require('../../assets/Images/Logo.png'),
-      require('../../assets/Images/Logo.png'),
-      require('../../assets/Images/Logo.png'),
-      require('../../assets/Images/Logo.png')
+      require('../../assets/Images/1.png'),
+      require('../../assets/Images/2.png'),
+      require('../../assets/Images/3.png'),
+      require('../../assets/Images/4.png')
     ];
   
     return (
@@ -125,16 +125,15 @@ const Dashboard = ({ navigation }) => {
       {renderSideMenu()}
 
       <ScrollView contentContainerStyle={styles.content}>
-        <Text style={styles.title}>EXPLORE</Text>
+        <Text style={styles.title}>Quote of the Day</Text>
 
-        <Text style={styles.sectionTitle}>Discover & News</Text>
+        <Text style={styles.sectionTitle}>Cute Anime Pictures</Text>
 
         <View style={styles.discoverContainer}>{renderDiscoverImages()}</View>
 
-        <Text style={styles.sectionTitle}>Why Bikers Hub?</Text>
+        <Text style={styles.sectionTitle}>How do you start doing things you're scared of?</Text>
         <Text style={styles.description}>
-          BikersHub connects bike enthusiasts with affordable rental options,
-          making cycling accessible to everyone.
+          Become more scared of doing nothing forever.
         </Text>
       </ScrollView>
 
@@ -157,20 +156,21 @@ const styles = StyleSheet.create({
   content: {
     flexGrow: 1,
     paddingTop: 100,
-    paddingHorizontal: 15,
+    paddingHorizontal: 10,
     alignItems: 'center',
   },
   title: {
-    fontSize: 24,
+    fontSize: 27,
     fontWeight: 'bold',
     marginBottom: 20,
     color: '#333',
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: 25,
     fontWeight: 'bold',
-    marginVertical: 15,
+    marginVertical: 20,
     color: '#333',
+    alignItems: 'center',
   },
   discoverContainer: {
     flexDirection: 'row',
@@ -192,6 +192,7 @@ const styles = StyleSheet.create({
   description: {
     color: '#666',
     lineHeight: 22,
+    fontSize: 20,
   },
   sideMenu: {
     position: 'absolute',
