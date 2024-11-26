@@ -11,10 +11,8 @@ import {
 import { Home, UserCircle, Settings, Menu, X } from 'lucide-react-native';
 import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
-// Constants
 const { width } = Dimensions.get('window');
 
-// Navigation Data
 const NAV_ITEMS = [
   { id: 'Home', label: 'Home', icon: Home },
   { id: 'Profile', label: 'Profile', icon: UserCircle },
@@ -25,7 +23,6 @@ const Dashboard = ({ navigation }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Home');
 
-  // Animated sidebar style
   const animatedSidebarStyle = useAnimatedStyle(() => ({
     transform: [
       {
@@ -34,7 +31,6 @@ const Dashboard = ({ navigation }) => {
     ],
   }));
 
-  // Render discover images (placeholder for your discover section)
   const renderDiscoverImages = () => {
     const images = [
       require('../../assets/Images/Logo.png'),
@@ -54,16 +50,13 @@ const Dashboard = ({ navigation }) => {
     );
   };
 
-  // Render the side menu
   const renderSideMenu = () => (
     <Animated.View style={[styles.sideMenu, animatedSidebarStyle]}>
-      {/* Logo at the top */}
       <Image
-        source={require('../../assets/Images/Logo.png')} // Ensure the path is correct
+        source={require('../../assets/Images/userImage.jpg')} // Ensure the path is correct
         style={styles.sideMenuLogo}
       />
 
-      {/* Close Menu Button */}
       <TouchableOpacity
         style={styles.closeMenuButton}
         onPress={() => setIsMenuOpen(false)}
@@ -71,7 +64,6 @@ const Dashboard = ({ navigation }) => {
         <X color="black" size={24} />
       </TouchableOpacity>
 
-      {/* Navigation Items */}
       {NAV_ITEMS.map((item) => (
         <TouchableOpacity
           key={item.id}
@@ -79,7 +71,7 @@ const Dashboard = ({ navigation }) => {
           onPress={() => {
             setActiveTab(item.id);
             setIsMenuOpen(false);
-            navigation.navigate(item.id); // Navigate using the correct screen ID
+            navigation.navigate(item.id); 
           }}
         >
           <item.icon color="black" size={24} />
@@ -87,17 +79,15 @@ const Dashboard = ({ navigation }) => {
         </TouchableOpacity>
       ))}
 
-      {/* Logout Button */}
       <TouchableOpacity
         style={styles.logoutButton}
-        onPress={() => navigation.navigate('Login')} // Navigate to Login Page
+        onPress={() => navigation.navigate('Login')} 
       >
         <Text style={styles.logoutButtonText}>Logout</Text>
       </TouchableOpacity>
     </Animated.View>
   );
 
-  // Render bottom navigation
   const renderBottomNavigation = () => (
     <View style={styles.bottomNavigation}>
       {NAV_ITEMS.map((item) => (
@@ -106,7 +96,7 @@ const Dashboard = ({ navigation }) => {
           style={styles.navItem}
           onPress={() => {
             setActiveTab(item.id);
-            navigation.navigate(item.id); // Navigate using the correct screen ID
+            navigation.navigate(item.id); 
           }}
         >
           <item.icon
@@ -125,7 +115,6 @@ const Dashboard = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* Hamburger Menu Toggle */}
       <TouchableOpacity
         style={styles.menuToggle}
         onPress={() => setIsMenuOpen(!isMenuOpen)}
@@ -133,10 +122,8 @@ const Dashboard = ({ navigation }) => {
         <Menu color="black" size={24} />
       </TouchableOpacity>
 
-      {/* Side Menu */}
       {renderSideMenu()}
 
-      {/* Main Content */}
       <ScrollView contentContainerStyle={styles.content}>
         <Text style={styles.title}>EXPLORE</Text>
 
@@ -151,7 +138,6 @@ const Dashboard = ({ navigation }) => {
         </Text>
       </ScrollView>
 
-      {/* Bottom Navigation */}
       {renderBottomNavigation()}
     </View>
   );
@@ -196,12 +182,12 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 10,
     marginBottom: 10,
-    overflow: 'hidden', // Ensures the image stays within the container bounds
+    overflow: 'hidden', 
   },
   discoverImage: {
     width: '100%',
     height: '100%',
-    resizeMode: 'cover', // Ensures the image fills the container properly
+    resizeMode: 'cover',
   },
   description: {
     color: '#666',
@@ -209,20 +195,22 @@ const styles = StyleSheet.create({
   },
   sideMenu: {
     position: 'absolute',
-    top: 0,
+    top: 5,
     left: 0,
     width: width * 0.75,
     height: '100%',
     backgroundColor: 'white',
     zIndex: 1000,
     padding: 20,
-    paddingTop: 80,
+    paddingTop: 90,
   },
   sideMenuLogo: {
-    width: '100%',
-    height: 250,
+    width: 200,
+    height: 200,
     resizeMode: 'contain',
-    marginBottom: 20,
+    marginBottom: 50,
+    borderRadius: 100,
+    left: 15,
   },
   closeMenuButton: {
     position: 'absolute',
