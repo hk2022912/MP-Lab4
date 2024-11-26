@@ -5,7 +5,7 @@ import Dashboard from '../components/Dashboard'; // Adjust path
 import SignUpForm from '../components/SignUpForm'; // Adjust path
 import UpdatePasswordScreen from '../components/UpdatePasswordScreen'; // Adjust path
 import DrawerNavigator from './DrawerNavigator'; // Import Drawer Navigator
-import ProfileScreen from '../screens/ProfileScreen';
+import ProfileScreen from '../components/ProfileScreen';
 
 
 
